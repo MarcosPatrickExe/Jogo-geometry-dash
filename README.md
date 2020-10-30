@@ -1,5 +1,5 @@
 # Jogo-geometry-dash
-Criando jogo Geometry Dash com JavaScript para navegadores
+Criando jogo geometry dash com JavaScript para navegadores
 
 NOTA: o jogo atualmente conta com uma interface bem simples. Além disso, não contém o aviso dedicado à dizer que 
 o usuário perdeu ao deixar o seu cubo tocar em um dos obstáculos. Logo, Tais tarefas serão concluídas ao decorrer 
