@@ -1,8 +1,8 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
     <head>
          <meta charset="utf-8">
-         <title>Jogo Flappy Bird</title>
+         <title>Jogo Geometry Dash</title>
          <style>
              canvas{ /* centralizando o elemento canvas */ 
                  position: absolute;
@@ -14,9 +14,11 @@
              }
          </style>
     </head>
-    <body>
-         <script>
-             var canvas, ctx, ALTURA, LARGURA, frames= 0, velocidade=6;
+<body>  
+         <script type="text/javascript">
+             window.canvas; 
+             var ALTURA, LARGURA, frames= 0, velocidade=6;
+             window.ctx;
 
              var chao = {
                  y: 550,
@@ -49,7 +51,7 @@
                        this.maxPulo=0; 
                     }
                  },
-                  
+
                  desenha: function(){
                      ctx.fillStyle=this.cor;
                      ctx.fillRect(this.x, this.y, this.largura, this.altura);
@@ -60,60 +62,74 @@
                  }
             };
 
-            var obstaculos = {
-                 cores: ["#ffbc1c","#ff1c1c","#ff85e1","#52a7ff","#78ff5d"],
-                 obj: [],
-                 //tempo: ,
-                // x: 500,
-                 //y: 300,
+            var obstaculos = new Object();
+             obstaculos.cores = ["#ffbc1c","#ff1c1c","#ff85e1","#52a7ff","#78ff5d"],
+             obstaculos.obj = new Array();
+             obstaculos.larguraObstaculos=500;
+                 //tempo:,
+                 // x: 500,
+                 // y: 300,
                  // largura: 50,
                  // altura: 300-chao.altura,
-                 inserir: function(){
-                   this.obj.push({  //trecho de programação funcional, isto é, a fração 'push' recebe um objeto enquanto é chamada!
-                     x: LARGURA,
-                     largura: 30+Math.floor(21*Math.random()),
-                     altura: 30+Math.floor(121*Math.random()),
-                     cor: this.cores[Math.floor(Math.random()*5)]
-                   }); 
-                 },  
+             obstaculos.inserir = function(){
+                //var novoVetorDeObstaculos = new Array(this.obj.length+1);
+                //novoVetorDeObstaculos= this.obj; 
+                
+              if(this.obj.length<=10){  
+                this.larguraObstaculos+=150;
+                var novoObjetoObstaculos = new Object();
+                novoObjetoObstaculos.x = this.larguraObstaculos;  
+                novoObjetoObstaculos.largura= (30+Math.floor(21*Math.random()));
+                novoObjetoObstaculos.altura= (30+Math.floor(21*Math.random()));
+                novoObjetoObstaculos.cor= this.cores[Math.floor(Math.random()*5)];          
 
-                 atualiza: function(){
-                 	 for(var i=0, tam=this.obj.length;i<tam;i++){
-                        var obs = this.obj[i];
-                        obs.x -= velocidade;
-                        if(obs.x == -obs.largura){
-                           obs.splice(i, 1);
-                           tam--;
-                           i--;
-                        }
-                    }
-                 }, 
+                this.obj.push(novoObjetoObstaculos);
+                
+              }
+             //  document.write(novoVetorDeObstaculos.x);
+             /*   novoVetorDeObstaculos[this.obj.length-1]=novoObjetoObstaculos;
+                this.obj = novoVetorDeObstaculos;
+                alert(novoVetorDeObstaculos[this.obj.length-1].x); */
+              //  document.write(novoVetorDeObstaculos.length);
+            }; 
+
+            obstaculos.atualiza = function(){
+             for(var i=0; i<this.obj.length; i++){
+               this.obj[i].x -= velocidade;
+               if(this.obj[i].x <= -this.obj[i].largura){
+                 this.obj.splice(i, 1);//retirando o objeto de dentro do vetor
+                 i--;
+                 //alert("removido");
+                }
+              }
+            };
       
-                 desenha: function(){
-                  for(var i=0, tam=this.obj.length;i<tam;i++){
-                        var obs = this.obj[i];
-                        ctx.fillStyle=obs.cor;
-                        ctx.fillRect(obs.x, 550-obs.altura, obs.largura, obs.altura);
-                    }
-                 }
-             }; 
-             
-             function main(){
-                  ALTURA = window.innerHeight;
-                  LARGURA = window.innerWidth;
+            obstaculos.desenha= function(){
+                for(var i=0; i<this.obj.length;i++){
+                    var obs = this.obj[i];
+                    //document.write(obs.x);  só retorna NaN quando tenta o acesso 
+                    ctx.fillStyle=obs.cor;
+                    ctx.fillRect(obs.x, 550-obs.altura, obs.largura, obs.altura);
+                    
+                }
+            } 
+    
+            function main(){
+                ALTURA = window.innerHeight;
+                LARGURA = window.innerWidth;
 
-                  if(LARGURA>=500){
-                      LARGURA=600;
-                      ALTURA=600;
-                  }
+                if(LARGURA>=500){
+                    LARGURA=600;
+                    ALTURA=600;
+                }
                 
-                canvas = document.createElement("canvas"); //criando elemento/objeto 'canvas'
-                canvas.width = LARGURA;
-                canvas.height = ALTURA;
-                canvas.style.border="1px solid black";
+                window.canvas = document.createElement("canvas"); //criando elemento/objeto 'canvas'
+                window.canvas.width = LARGURA;
+                window.canvas.height = ALTURA;
+                window.canvas.style.border="1px solid black";
                 
-                ctx=canvas.getContext("2d"); //adicionando o contexto do elemento, que será em 2D
-                document.body.appendChild(canvas); //adicionando objeto/elemento ao documento HTML, sendo visivel ao CSS
+                ctx=window.canvas.getContext("2d"); //adicionando o contexto do elemento, que será em 2D
+                document.body.appendChild(window.canvas); //adicionando objeto/elemento ao documento HTML, sendo visivel ao CSS
                 document.addEventListener("mousedown", clique);
                 /*o eventListener foi adicionado ao documento para executar o evento/funçao 'mousedown', 
                   em que este só é ativado quando o cliente der um clique. caso isso ocorra, o eventListener  
@@ -126,8 +142,7 @@
              	 //setInterval(()=>{obstaculos.inserirNovo();},1000);
                  atualiza();
                  desenha();
-
-                 //insertTimeout();
+                 obstaculos.inserir();
                  
                  window.requestAnimationFrame(roda);
                  /*a função acima chama a própria função 'roda()' continuamente.
@@ -135,15 +150,14 @@
              } 
              
              function atualiza(){
-                 frames++;
                  bloco.atualiza();
                  obstaculos.atualiza();
                  //setInterval(()=>{obstaculos.atualiza();},2000 ); 
-                  
              }
 
+            // window.ctx=canvas.getContext("2d");
              function desenha(){
-                 ctx.fillStyle="#50beff"; //ctx é um objeto retornado da função getContext("2d")
+                 window.ctx.fillStyle="#50beff"; //ctx é um objeto retornado da função getContext("2d")
                  ctx.fillRect(0,0, LARGURA, ALTURA); //o preechimento será do canto superior esquerdo(0,0) ao inferior direito(600px, 600px)
                  chao.desenha();
                  //setInterval(()=>{obstaculos.desenha();},2000 ); 
@@ -156,7 +170,7 @@
                    bloco.pula();
                  bloco.maxPulo++; }
              }
- 
+
              main();
               /* var cont=1;
 	             function mudarCor(cor){
