@@ -27,3 +27,7 @@ Já adianto que o arquivo com o game talvez não rode no seu navegador, visto qu
 JavaScript muda em alguns trechos do códido e tais variações remetem à uma versão, dentre várias, da linguagem.
 Cada versão do JS pode ser facilmente interpretada (ou não) pelo seu navegador, tudo vai depender 
 do motor JavaScript do mesmo para a execução correta do jogo.
+
+
+Preview do tela do jogo:
+![preview do jogo](https://user-images.githubusercontent.com/61922327/100026313-556fd180-2dc9-11eb-8278-4e222c714e31.png)
