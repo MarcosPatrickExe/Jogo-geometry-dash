@@ -29,5 +29,5 @@ Cada versão do JS pode ser facilmente interpretada (ou não) pelo seu navegador
 do motor JavaScript do mesmo para a execução correta do jogo.
 
 
-Preview do tela do jogo:
+Preview da tela do jogo:
 ![preview do jogo](https://user-images.githubusercontent.com/61922327/100026313-556fd180-2dc9-11eb-8278-4e222c714e31.png)
