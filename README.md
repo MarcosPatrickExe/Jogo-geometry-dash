@@ -1,16 +1,16 @@
-<h1 align="center">Jogo-geometry-dash</h1>
+<h1 align="center">:video_game: Jogo-geometry-dash :diamond_shape_with_a_dot_inside:</h1>
 
-<h3>NOTA: </h3><p>o jogo atualmente conta com uma interface mediana, quase que finalizada. Contudo, não contém um aviso muito claro dedicado 
+<h3>:small_orange_diamond: Nota: </h3><p>o jogo atualmente conta com uma interface mediana, quase que finalizada. Contudo, não contém um aviso muito claro dedicado 
 à dizer que o usuário perdeu ao deixar o seu cubo tocar em um dos obstáculos. Logo, tal tarefa pendente será concluída no decorrer 
 dos próximos dias.</p> 
 
-<h3>Como funciona o jogo:</h3>
+<h3>:small_orange_diamond: Como funciona o jogo:</h3>
 <p>Para quem não conhece o Geometry Dash ele é um jogo em que você controla um cubo que desliza por uma superfície plana e que ele 
 somente tem a opção de pular para desviar dos diversos obstáculos vindos do lado direito da tela. Nessa recriação,
 os obstáculos apresentam altura e largura gerados aleatoriamente pelo algoritmo. Para desviar dos obstáculos basta 
 que você clique em qualquer lugar da tela para que o bloco pule por cima deles.</p>
 
-<h3>Como executar o jogo:</h3> 
+<h3>:small_orange_diamond: Como executar o jogo:</h3> 
 <p>Primeiro baixe as fotos contidas na pasta "imagens" e as coloque numa pasta nomeada de "imagens". Fora dessa pasta, 
 coloque o arquivo "game geometry dash.html", o qual se encontra na pasta "game na versão 0.2" aqui do github e em seguida abra ele com 
 o seu navegador de preferência. Assim que entrar no jogo - o qual apresenta uma aparência inspirada no estilo cyberpunk - clique 
@@ -19,8 +19,8 @@ automaticamente e aparecerá um quadrado vermelho no centro da tela indicando qu
 nesse quadrado.</p>
 
 
-<h3>Leia isso caso o jogo não rode no seu navegador: </h3> 
-<h4>Possíveis erros na hora de executar o jogo: </h4>
+<h3>:small_orange_diamond: Leia isso caso o jogo não rode no seu navegador: </h3> 
+<h4>:point_right: Possíveis erros na hora de executar o jogo: </h4>
 <p>O jogo terá acesso constante ao DOM (Document Object Model), por meio do JavaScript.
 Assim, poderá fazer chamadas aos diferentes eventos disponíveis para a execução correta do game.
 Já adianto que o arquivo com o game talvez não rode no seu navegador, visto que a sintaxe do 
